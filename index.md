@@ -1,0 +1,65 @@
+---
+title       : Safety Car App
+subtitle    : The application to become aware of speed riskiness
+author      : Carlos Giraldo
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [bootstrap, quiz]            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Introduction
+
+Do you know how much is 50 miles per hour?
+
+Of course, you have been in cars at 50 miles per hour...
+
+But, do you know how much feets will take to stop the car at 50 miles per hour??
+
+--- &radio
+## Give it a try
+1. less than 10 feets
+2. between 10 and 50 feets
+3. between 50 and 100 feets 
+4. _more than 100 feets_
+
+*** .hint
+It is a loot of feets!
+
+---.class #id 
+## How to use it 
+Try the application at the url: https://cgiraldo.shinyapps.io/project/
+
+At the left panel you can enter the speed of the car.
+
+* For British and US, you can set the speed in miles per hour.
+
+* For the rest of the world (almost), you can use kilometers per hour.
+
+* We also love the International System of Units! 
+You can enter the speed in meters per second!
+
+In the main panel you will have your required distance to break!
+
+---
+## Under the hood
+The application makes uses of the cars dataset of R.
+A linear regression through the origin is used between speed and distance.
+
+```r
+lm(dist ~ speed -1, data=cars)
+```
+
+```
+## 
+## Call:
+## lm(formula = dist ~ speed - 1, data = cars)
+## 
+## Coefficients:
+## speed  
+##  2.91
+```
+
